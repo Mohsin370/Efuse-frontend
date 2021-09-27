@@ -1,0 +1,25 @@
+.InputCardcontainer{
+    width: 100%;
+    min-height: 200px;
+    background-color: RGB(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 0px 0px 1px #ced4de;
+}
+.statusInputField{
+    width: 88%;
+    height: 100px;
+    resize: none;
+    border: none;
+    outline: none;
+}
+.statusInputField::placeholder{
+    color: RGB(142, 152, 168);
+    font-weight: 600;
+}
+.tag{
+    background-color: black;
+    border-radius: 99px;
+    color: #eaedf1;
+    padding: 6px 12px 6px 12px ;
+}
