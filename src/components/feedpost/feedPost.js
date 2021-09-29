@@ -1,11 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import styles from "./feedpost.module.css";
 import ProfileImg from "../profileImg/profileImg";
 
 const FeedPost = () => {
-  const imgUrl =
-    "https://res.cloudinary.com/khawaja/image/upload/v1631783754/cxuifpxdgokktcwfxipn.jpg";
-
+  const imgUrl ="https://res.cloudinary.com/khawaja/image/upload/v1631783754/cxuifpxdgokktcwfxipn.jpg";
+  const [enableComment,setEnableComment] =useState(false)
   return (
     <div className={styles.feedPostCard}>
       <div className="p-3">
@@ -15,11 +14,11 @@ const FeedPost = () => {
           </div>
           <div
             className="col-8 col-sm-10"
-            style={{ paddingLeft: "1rem", lineHeight: "8px" }}
+            style={{ paddingLeft: "1rem", lineHeight: "5px" }}
           >
-            <p>Khawaja Mohsin </p>
-            <p>LHR, PK</p>
-            <p>1 minute ago</p>
+            <p className={styles.UserName}>Khawaja Mohsin </p>
+            <p className={styles.UserLocation}>LHR, PK</p>
+            <p className={styles.PostTime}>1 minute ago</p>
           </div>
           <div className="col-2 col-sm-1">
             <span className="">...</span>
@@ -35,33 +34,34 @@ const FeedPost = () => {
       </div>
       <div className={styles.postActioncontainer}>
         <div className="d-flex">
-          <p>Like</p>
-          <p style={{ paddingLeft: "2rem" }}>Comment</p>
+          <p  className={styles.actionBtns}>Like</p>
+          <p style={{ paddingLeft: "2rem" }} className={styles.actionBtns} onClick={()=>setEnableComment(true)}>Comment</p>
         </div>
         {/* on clicking comment button */}
+        {enableComment &&
         <div className="">
           <div className="d-flex">
             <div>
-              <ProfileImg imgUrl={imgUrl} size="lg"></ProfileImg>
+              <ProfileImg imgUrl={imgUrl}></ProfileImg>
             </div>
             <div className={styles.commentInput}>
               <input placeholder="Add a comment" />
             </div>
           </div>
-
+          {/* Actual Comment */}
           <div className="d-flex">
             <div>
-              <ProfileImg imgUrl={imgUrl} size="lg"></ProfileImg>
+              <ProfileImg imgUrl={imgUrl} ></ProfileImg>
             </div>
             <div className={styles.commentContainer}>
               <div className={styles.commentMain}>
                 <div className="d-flex justify-content-between">
-                  <div>
-                    <p>Khawaja Mohsin</p>
-                    <p>professional-student</p>
+                  <div style={{ lineHeight: "15px" }}>
+                    <p className={styles.UserName}>Khawaja Mohsin </p>
+                    <p className={styles.UserLocation}>professional-student</p>
                   </div>
                   <div>
-                    <p>11 minutes ago</p>
+                    <p className={styles.PostTime}>11 minutes ago</p>
                   </div>
                 </div>
                 <p>This is What comment Looks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks LikeLooks Like</p>
@@ -70,6 +70,7 @@ const FeedPost = () => {
             </div>
           </div>
         </div>
+        }
       </div>
     </div>
   );

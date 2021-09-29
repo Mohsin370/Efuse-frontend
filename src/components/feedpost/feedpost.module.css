@@ -12,8 +12,13 @@
 .postContent {
 }
 
+.actionBtns{
+  color: #727385;
+  font-weight: 700;
+  cursor: pointer;
+}
 .postActioncontainer {
-  background-color: grey;
+  background-color: #f0f0f0;
   border-radius: 0px 0px 10px 10px;
   padding: 10px 0px 0px 1.5rem;
 }
@@ -32,16 +37,28 @@
   outline: none;
 }
 
-.commentContainer{
-    padding: 0px 0px 20px 20px;
-    width: 95%;
-
+.commentContainer {
+  padding: 0px 0px 20px 20px;
+  width: 95%;
 }
 
-.commentMain{
-    width: 95%;
-    border-radius: 10px;
-    background-color: #d9e1eb;
-    min-height: 200px;
-    padding: 10px;
+.commentMain {
+  width: 95%;
+  border-radius: 10px;
+  background-color: #d9e1eb;
+  min-height: 200px;
+  padding: 10px;
+}
+
+.UserName {
+  font-weight: bold;
+}
+.UserLocation {
+  color: #4a81e6;
+  font-weight: bold;
+}
+
+.PostTime {
+  color: #9697a0;
+  font-weight: bold;
 }

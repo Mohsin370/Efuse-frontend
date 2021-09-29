@@ -1,16 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ProfileImg from '../profileImg/profileImg';
-import styles from './statusInputCard.module.css'
-import {Button} from 'react-bootstrap'
+import styles from './statusInputCard.module.css';
+import { Button } from 'react-bootstrap';
+import { PostStatus } from '../../api/api';
 
 export default function StatusInputCard() {
-    const imgUrl="https://res.cloudinary.com/khawaja/image/upload/v1631783754/cxuifpxdgokktcwfxipn.jpg"
+    const imgUrl = "https://res.cloudinary.com/khawaja/image/upload/v1631783754/cxuifpxdgokktcwfxipn.jpg"
     const [status, setStatus] = useState('')
-    const postStatus = () =>{
-        console.log(status)
-        setStatus('')
+    const postStatus = () => {
+        PostStatus(status).then((res) => {
+            console.log(res, status)
+            setStatus('')
+        }).catch(() => {
+            setStatus('')
+        })
     }
-    const getStatusInput = (e) =>{
+    const getStatusInput = (e) => {
         setStatus(e.target.value)
     }
     return (
@@ -20,9 +25,9 @@ export default function StatusInputCard() {
                     <div>
                         <ProfileImg imgUrl={imgUrl} size="lg"></ProfileImg>
                     </div>
-                    <textarea className={styles.statusInputField} placeholder="What is on your mind?" onChange={getStatusInput} value={status}/>
+                    <textarea className={styles.statusInputField} placeholder="What is on your mind?" onChange={getStatusInput} value={status} />
                 </div>
-                <hr/>
+                <hr />
                 <div className="d-flex justify-content-between col-md-11 m-auto mt-3">
                     <div><p className={styles.tag}>Photo/Video</p></div>
                     <div><Button onClick={postStatus} disabled={!status} >Post It</Button></div>
